@@ -430,8 +430,6 @@
     </footer>
 
     <script>
-        document.body.classList.add('js-enabled');
-
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -450,23 +448,6 @@
                 hamburger.classList.remove('is-open');
                 overlay.classList.remove('is-open');
             });
-        });
-
-        // Fade-up animation — reveal elements already in viewport immediately
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
-
-        document.querySelectorAll('.fade-up').forEach(el => {
-            observer.observe(el);
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                el.classList.add('is-visible');
-            }
         });
 
         // Form handler
